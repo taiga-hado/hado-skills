@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>施工管理（未経験歓迎）採用｜HADO建設</title>
+<meta name="description" content="未経験から施工管理へ。平均年齢31歳、施工管理22名中12名が未経験入社。月給27万円〜・年間休日125日。LINEで仕事内容を聞いてみる。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Noto+Sans+JP:wght@400;700&family=Zen+Kaku+Gothic+New:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1C2024; --paper:#F3F0E8; --blueprint:#1F4E79; --caution:#F2B705; --line:#06C755; --rule:#C9C3B6;
+  --h:"Zen Kaku Gothic New",sans-serif; --b:"Noto Sans JP",sans-serif; --n:"Barlow Condensed",sans-serif;
+  --gap:88px; --pad:20px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font:400 16px/1.85 var(--b);
+  background-image:linear-gradient(var(--rule) 1px,transparent 1px),linear-gradient(90deg,var(--rule) 1px,transparent 1px);
+  background-size:24px 24px;background-attachment:fixed}
+body::before{content:"";position:fixed;inset:0;background:rgba(243,240,232,.86);z-index:-1}
+img{display:block;max-width:100%}
+a{color:inherit}
+.wrap{max-width:600px;margin:0 auto;background:var(--paper);box-shadow:0 0 0 1px var(--rule)}
+section{padding:var(--gap) var(--pad) 0}
+.num{font-family:var(--n);font-weight:700;letter-spacing:.01em}
+h2{font:900 26px/1.35 var(--h);margin-bottom:24px;word-break:keep-all;overflow-wrap:anywhere}
+h2 small{display:block;font:700 12px/1 var(--n);letter-spacing:.2em;color:var(--blueprint);margin-bottom:10px}
+p+p{margin-top:14px}
+.photo{position:relative}
+.photo figcaption{position:absolute;right:8px;bottom:6px;font-size:10px;color:#fff;text-shadow:0 0 4px rgba(0,0,0,.6)}
+
+/* Signature element: dimension line */
+.dim{position:relative;display:flex;align-items:center;justify-content:center;height:36px;margin:18px 0;color:var(--blueprint)}
+.dim::before{content:"";position:absolute;left:0;right:0;top:50%;border-top:1.5px solid var(--blueprint)}
+.dim i{position:absolute;top:50%;width:0;height:0;border:6px solid transparent;transform:translateY(-50%)}
+.dim i.l{left:-2px;border-right:10px solid var(--blueprint);border-left:0}
+.dim i.r{right:-2px;border-left:10px solid var(--blueprint);border-right:0}
+.dim .t{position:absolute;left:0;top:4px;bottom:4px;border-left:1.5px solid var(--blueprint)}
+.dim .t.e{left:auto;right:0}
+.dim span{position:relative;background:var(--paper);padding:0 12px;font-weight:700;font-size:15px;white-space:nowrap}
+.dim span b{font:700 30px/1 var(--n);margin:0 3px;vertical-align:-3px}
+.dim.grow::before{transform-origin:left;transform:scaleX(0);transition:transform 1.1s cubic-bezier(.2,.7,.2,1)}
+.dim.grow i,.dim.grow span{opacity:0;transition:opacity .4s .9s}
+.dim.grow.on::before{transform:scaleX(1)}
+.dim.grow.on i,.dim.grow.on span{opacity:1}
+
+/* CTA */
+.cta{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;padding:18px 16px;border-radius:12px;
+  background:var(--line);color:#fff;text-decoration:none;font:700 18px/1.3 var(--b);box-shadow:0 4px 0 #04963F}
+.cta svg{flex:none}
+.cta-note{text-align:center;font-size:13px;margin-top:10px;color:#4A4F55}
+.cta-block{margin-top:36px}
+.sticky{position:fixed;left:0;right:0;bottom:0;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(243,240,232,.96);
+  border-top:1px solid var(--rule);z-index:10;transform:translateY(110%);transition:transform .3s}
+.sticky.on{transform:none}
+.sticky .cta{max-width:576px;margin:0 auto;padding:14px;font-size:16px}
+
+/* FV */
+.fv{padding:0}
+.fv-head{display:flex;justify-content:space-between;align-items:center;padding:14px var(--pad);font:900 20px/1 var(--h)}
+.fv-head span{font:700 11px/1 var(--b);color:var(--blueprint);border:1px solid var(--blueprint);padding:5px 8px}
+.fv-photo{position:relative;aspect-ratio:4/3.6;overflow:hidden}
+.fv-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.fv-photo .v{position:absolute;left:14px;top:40%;bottom:16px;width:22px;color:#fff}
+.fv-photo .v::before{content:"";position:absolute;left:50%;top:0;bottom:0;border-left:1.5px solid rgba(255,255,255,.9)}
+.fv-photo .v::after{content:"施工管理 22名";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(90deg);white-space:nowrap;
+  font:700 12px/1 var(--b);background:rgba(28,32,36,.55);padding:4px 8px}
+.fv-body{padding:22px var(--pad) 0}
+.fv h1{font:900 34px/1.25 var(--h);letter-spacing:-.01em}
+.fv .lead{margin-top:14px;font-weight:700;font-size:17px;line-height:1.6}
+.fv .lead .num{font-size:24px;color:var(--blueprint);margin:0 1px}
+.peek{margin-top:28px;padding:0 var(--pad);font-size:13px;color:var(--blueprint);font-weight:700;display:flex;gap:8px;align-items:center}
+.peek::after{content:"";flex:1;border-top:1px dashed var(--blueprint)}
+
+/* job */
+.list{list-style:none;border-top:1px solid var(--ink)}
+.list li{display:grid;grid-template-columns:1fr;padding:16px 0;border-bottom:1px solid var(--rule)}
+.list li strong{font-size:17px}
+.list li span{font-size:14px;color:#4A4F55}
+
+/* timeline */
+.tl{list-style:none;position:relative;margin-left:4px}
+.tl::before{content:"";position:absolute;left:58px;top:8px;bottom:8px;border-left:1.5px solid var(--blueprint)}
+.tl li{display:grid;grid-template-columns:52px 1fr;gap:22px;padding:10px 0;position:relative}
+.tl li::before{content:"";position:absolute;left:54px;top:22px;width:9px;height:9px;background:var(--paper);border:2px solid var(--blueprint);border-radius:50%}
+.tl time{font:700 22px/1.4 var(--n);color:var(--blueprint)}
+.tl b{display:block}
+.tl span{font-size:14px;color:#4A4F55}
+
+/* salary table */
+.table{width:100%;border-collapse:collapse;font-size:15px;background:#fff}
+.table th,.table td{border:1px solid var(--rule);padding:12px 10px;text-align:left;vertical-align:top}
+.table th{width:34%;font-weight:700;background:#FBFAF6}
+.table td .num{font-size:24px;color:var(--blueprint)}
+.facts{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--ink);border-left:1px solid var(--rule);margin-top:24px}
+.facts div{border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:14px 12px}
+.facts dt{font-size:12px;color:#4A4F55}
+.facts dd{font-weight:700}
+.facts dd .num{font-size:30px;line-height:1.1;color:var(--blueprint);margin-right:2px}
+.note{font-size:12px;color:#4A4F55;margin-top:10px}
+
+/* growth */
+.steps{list-style:none;counter-reset:s}
+.steps li{padding:18px 0 18px 0;border-bottom:1px solid var(--rule)}
+.steps li:first-child{border-top:1px solid var(--ink)}
+.steps .when{font:700 13px/1 var(--b);color:#fff;background:var(--blueprint);display:inline-block;padding:5px 9px;margin-bottom:8px}
+.steps b{display:block;font-size:17px}
+.steps span{font-size:14px;color:#4A4F55}
+
+/* voices */
+.voice{display:grid;grid-template-columns:1fr;gap:12px;background:#fff;border:1px solid var(--rule);padding:18px;margin-top:14px}
+.voice .who{font-size:13px;color:#4A4F55}
+.voice .who b{color:var(--ink);font-size:15px}
+.voice q{quotes:none;font-weight:700}
+
+/* honest */
+.honest{background:var(--ink);color:#fff;margin:var(--gap) 0 0;padding:44px var(--pad)}
+.honest h2 small{color:var(--caution)}
+.honest ul{list-style:none}
+.honest li{padding:14px 0;border-bottom:1px solid #3A4046}
+.honest li b{display:block;color:var(--caution)}
+.honest li span{font-size:14px;color:#D5D8DB}
+.honest + section{padding-top:var(--gap)}
+
+/* flow */
+.flow{list-style:none}
+.flow li{display:grid;grid-template-columns:40px 1fr;gap:14px;padding:14px 0;border-bottom:1px solid var(--rule)}
+.flow li .n{font:700 28px/1 var(--n);color:var(--blueprint)}
+.flow li span{font-size:14px;color:#4A4F55}
+
+/* faq */
+details{border-bottom:1px solid var(--rule);padding:16px 0}
+details:first-of-type{border-top:1px solid var(--ink)}
+summary{font-weight:700;cursor:pointer;list-style:none;display:flex;gap:10px}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"Q";font:700 20px/1.2 var(--n);color:var(--blueprint)}
+details p{margin-top:10px;font-size:15px;padding-left:22px}
+
+.last{padding-bottom:40px}
+.last .lead{font-weight:700}
+footer{padding:40px var(--pad) 120px;font-size:12px;color:#4A4F55;border-top:1px solid var(--rule);margin-top:var(--gap)}
+
+@media (min-width:768px){
+  body{font-size:17px}
+  .fv h1{font-size:44px}
+  h2{font-size:30px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- 1. FV -->
+  <header class="fv">
+    <div class="fv-head">HADO建設<span>施工管理 未経験歓迎</span></div>
+    <figure class="fv-photo photo">
+      <img src="images/hero.jpg" alt="改修工事の現場で職人さんと段取りを確認する施工管理の社員">
+      <div class="v" aria-hidden="true"></div>
+      <figcaption>イメージ</figcaption>
+    </figure>
+    <div class="fv-body">
+      <h1>未経験から、<br>施工管理に<br>なりたい人へ。</h1>
+      <p class="lead">平均年齢<span class="num">31</span>歳。<br>施工管理<span class="num">22</span>名中<span class="num">12</span>名が未経験入社です。</p>
+      <div class="dim grow" id="fvdim" style="margin:12px 0 14px"><i class="l"></i><i class="r"></i><em class="t"></em><em class="t e"></em><span>1人で現場を持つまで<b>18</b>ヶ月</span></div>
+      <a class="cta" href="https://lin.ee/example"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M12 3C6.5 3 2 6.6 2 11c0 3.9 3.5 7.2 8.3 7.9.3.1.8.2.9.5.1.3.1.7 0 1l-.1.9c0 .3-.2 1 .9.5s5.9-3.5 8-6c1.4-1.6 2-3.2 2-4.8C22 6.6 17.5 3 12 3z"/></svg>LINEで仕事内容を聞いてみる</a>
+      <p class="cta-note">友だち追加のあと、30分のオンライン面談の日程を決めます。<br>履歴書不要・私服OK・話を聞くだけでもOK</p>
+    </div>
+    <p class="peek">施工管理って、何をする仕事？</p>
+  </header>
+
+  <!-- 2. 仕事内容 -->
+  <section id="job">
+    <h2><small>WORK</small>施工管理は、現場の段取りを決める仕事です。</h2>
+    <p>工具を持って作業するのは職人さん。施工管理は「誰が・いつ・何を・どの順番で」やるかを決めて、工事を予定どおりに、安全に終わらせる役割です。HADO建設の現場は、マンションやオフィスの改修工事。1つの現場が1〜4ヶ月と短いので、始まりから引き渡しまでを何度も経験できます。</p>
+    <p>HADO建設は工事の8割を元請けとして受けています。派遣ではなく正社員として、自社の現場を最初から最後まで担当します。</p>
+    <figure class="photo" style="margin:24px 0">
+      <img src="images/drawing.jpg" alt="図面と工程表を確認する手元" loading="lazy">
+      <figcaption>イメージ</figcaption>
+    </figure>
+    <ul class="list">
+      <li><strong>工程管理</strong><span>工程表をつくり、職人さんの入る日を調整する</span></li>
+      <li><strong>安全管理</strong><span>朝礼で今日の作業と危ない箇所を共有する</span></li>
+      <li><strong>品質管理</strong><span>図面どおりにできているか、写真を撮って確認する</span></li>
+      <li><strong>お客様・管理会社とのやりとり</strong><span>住んでいる方への工事のお知らせ、進み具合の報告</span></li>
+    </ul>
+  </section>
+
+  <!-- 3. 1日の流れ -->
+  <section id="day">
+    <h2><small>ONE DAY</small>入社1年目の1日</h2>
+    <ol class="tl">
+      <li><time>8:00</time><div><b>現場に直行・朝礼</b><span>今日の作業と注意点を職人さんに共有</span></div></li>
+      <li><time>9:00</time><div><b>現場を見て回る</b><span>進み具合を写真で記録。先輩と一緒に確認</span></div></li>
+      <li><time>12:00</time><div><b>お昼休み</b><span>1時間。近くのお店か現場の休憩所で</span></div></li>
+      <li><time>13:00</time><div><b>職人さんと打ち合わせ</b><span>明日以降の段取りと、材料の届く日を調整</span></div></li>
+      <li><time>15:00</time><div><b>書類・写真の整理</b><span>タブレットで工事写真と日報をまとめる</span></div></li>
+      <li><time>17:00</time><div><b>片付けを確認して直帰</b><span>事務所に戻らない日がほとんど</span></div></li>
+    </ol>
+    <figure class="photo" style="margin-top:24px">
+      <img src="images/morning.jpg" alt="現場での朝礼" loading="lazy">
+      <figcaption>イメージ</figcaption>
+    </figure>
+  </section>
+
+  <!-- 4. 給与・待遇 -->
+  <section id="pay">
+    <h2><small>SALARY</small>給与と休みは、<br>先に全部出します。</h2>
+    <table class="table">
+      <tr><th>未経験で入社</th><td><span class="num">27</span>万円〜／月<br><span class="note">固定残業代なし。残業代は全額別途</span></td></tr>
+      <tr><th>経験者</th><td><span class="num">32〜45</span>万円／月</td></tr>
+      <tr><th>賞与</th><td>年2回（昨年実績 計<span style="white-space:nowrap"><span class="num">4.2</span>ヶ月分）</span></td></tr>
+      <tr><th>手当</th><td>資格手当（2級 月1万円・1級 月3万円）／現場手当 月1万円／住宅手当 月2万円</td></tr>
+    </table>
+    <dl class="facts">
+      <div><dt>年間休日</dt><dd><span class="num">125</span>日</dd></div>
+      <div><dt>残業（月平均）</dt><dd><span class="num">18</span>時間</dd></div>
+      <div><dt>休み</dt><dd>土日祝・GW・<span style="white-space:nowrap">夏季・年末年始</span></dd></div>
+      <div><dt>土曜出勤</dt><dd>あれば必ず振替休日</dd></div>
+    </dl>
+    <p class="note">残業時間は2025年度・施工管理全員の平均です。</p>
+    <div class="cta-block">
+      <a class="cta" href="https://lin.ee/example">LINEで給与のくわしい話を聞く</a>
+      <p class="cta-note">面談はオンライン30分。履歴書はいりません</p>
+    </div>
+  </section>
+
+  <!-- 5-6. 研修・キャリア -->
+  <section id="grow">
+    <h2><small>GROWTH</small>いきなり1人にはしません。</h2>
+    <p>入社から半年は、先輩と2人1組で同じ現場を担当します。1人で現場を持つのは、平均で入社1年半後です。</p>
+    <ol class="steps">
+      <li><span class="when">入社〜1ヶ月</span><b>現場のルールと道具を覚える</b><span>朝礼の進め方、工事写真の撮り方、図面の読み方</span></li>
+      <li><span class="when">〜6ヶ月</span><b>先輩と2人1組で現場を回す</b><span>工程表の作成と、職人さんとの段取りを一緒にやる</span></li>
+      <li><span class="when">〜1年半</span><b>小さな現場を1人で担当</b><span>困ったら先輩に電話で相談。月1回、事務所で先輩と振り返り</span></li>
+      <li><span class="when">入社3年以内</span><b>2級施工管理技士に挑戦</b><span>施工管理として働き続けるための国家資格。取ると資格手当 月1万円。受験料・講習費は会社負担で、過去5年で14名が入社3年以内に合格</span></li>
+    </ol>
+    <figure class="photo" style="margin-top:24px">
+      <img src="images/office.jpg" alt="事務所で先輩と工程を確認する若手社員" loading="lazy">
+      <figcaption>イメージ</figcaption>
+    </figure>
+  </section>
+
+  <!-- 7. 社員の声 -->
+  <section id="voice">
+    <h2><small>VOICE</small>未経験で入った先輩</h2>
+    <div class="voice">
+      <p class="who"><b>Kさん（27歳）</b><br>入社2年目／前職：家電量販店の販売</p>
+      <p><q>「最初の3ヶ月は、職人さんに何を聞けばいいのかも分からなかった。でも先輩が毎朝となりにいてくれて、半年たつと段取りの組み方が見えてきました。」</q></p>
+    </div>
+    <div class="voice">
+      <p class="who"><b>Sさん（24歳）</b><br>入社1年目／前職：食品工場のライン作業</p>
+      <p><q>「手に職をつけたくて入社。土日がちゃんと休めるのは想像以上でした。いまは2級の勉強中です。」</q></p>
+    </div>
+    <p class="note">※作例のため架空の社員です。実案件では実在の社員の声と写真だけを載せます。</p>
+  </section>
+
+  <!-- 8. 正直に -->
+  <div class="honest">
+    <h2><small>HONESTLY</small>入る前に<br>知っておいてほしいこと</h2>
+    <ul>
+      <li><b>引き渡し前の2〜3週間は忙しい</b><span>工期の終盤は、残業が月30時間を超えることがあります。</span></li>
+      <li><b>夏の現場は暑い</b><span>屋外の作業もあります。空調服は会社が支給します。</span></li>
+      <li><b>仕事の中心は「人との調整」</b><span>職人さん・お客様・管理会社と毎日話します。最初はしんどいと感じる人もいます。</span></li>
+    </ul>
+  </div>
+
+  <!-- 募集要項 -->
+  <section id="spec">
+    <h2><small>REQUIREMENTS</small>募集要項</h2>
+    <table class="table">
+      <tr><th>職種</th><td>施工管理（未経験歓迎）</td></tr>
+      <tr><th>雇用形態</th><td>正社員（試用期間3ヶ月・条件は同じ）</td></tr>
+      <tr><th>応募資格</th><td>20〜29歳（長期キャリア形成のため）。建設業の経験・資格・普通免許は不要</td></tr>
+      <tr><th>勤務地</th><td>東京23区の現場（電車で移動・直行直帰あり）</td></tr>
+      <tr><th>勤務時間</th><td>8:00〜17:00（休憩60分）</td></tr>
+      <tr><th>給与</th><td>未経験 月給27万円〜（固定残業代なし・残業代は全額別途）／経験者 月給32〜45万円</td></tr>
+      <tr><th>賞与</th><td>年2回（昨年実績 計4.2ヶ月分）</td></tr>
+      <tr><th>手当</th><td>資格手当（2級 月1万円・1級 月3万円）／現場手当 月1万円／住宅手当 月2万円（賃貸で一人暮らしの方）／交通費全額</td></tr>
+      <tr><th>休日</th><td>年間休日125日（土日祝・GW・夏季・年末年始）。土曜出勤があれば必ず振替</td></tr>
+      <tr><th>保険</th><td>社会保険完備</td></tr>
+    </table>
+  </section>
+
+  <!-- 9. 選考フロー -->
+  <section id="flow">
+    <h2><small>FLOW</small>応募から内定まで、最短2週間</h2>
+    <ol class="flow">
+      <li><span class="n num">1</span><div><b>LINEで友だち追加</b><br><span>質問だけでもOK。話を聞くだけでも大丈夫です</span></div></li>
+      <li><span class="n num">2</span><div><b>オンライン面談（30分）</b><br><span>仕事内容と給与の説明。私服・カメラオフでもOK</span></div></li>
+      <li><span class="n num">3</span><div><b>現場見学</b><br><span>実際の改修現場を先輩と一緒に見る</span></div></li>
+      <li><span class="n num">4</span><div><b>面接（1回）</b><br><span>履歴書はいりません。面接は1回だけです</span></div></li>
+      <li><span class="n num">5</span><div><b>内定</b></div></li>
+    </ol>
+    <div class="cta-block">
+      <a class="cta" href="https://lin.ee/example">LINEで面談の日程を聞く</a>
+      <p class="cta-note">面談のあとに断っても大丈夫です</p>
+    </div>
+  </section>
+
+  <!-- 10. FAQ -->
+  <section id="faq">
+    <h2><small>FAQ</small>よくある質問</h2>
+    <details><summary>建設業の経験も資格もありません。大丈夫ですか？</summary><p>大丈夫です。施工管理22名のうち12名が未経験で入社しています。資格は入社後に会社負担で取ります。</p></details>
+    <details><summary>体力に自信がありません。</summary><p>施工管理は自分で重い物を運ぶ仕事ではありません。現場を歩いて確認する仕事なので、立ち仕事と歩くことには慣れが必要です。</p></details>
+    <details><summary>職人さんが怖そうで不安です。</summary><p>最初の半年は先輩と2人1組なので、職人さんとの話し方は先輩のとなりで覚えられます。ただ、職人さんとの調整は仕事の中心です。人と話すのが苦手だと、最初はしんどいと感じるかもしれません。</p></details>
+    <details><summary>文系でも図面は読めるようになりますか？</summary><p>なります。入社1ヶ月目に、改修工事でよく使う図面の読み方を先輩が現場で教えます。</p></details>
+    <details><summary>今の仕事を続けながら話を聞けますか？</summary><p>聞けます。面談はオンライン30分で、平日19時以降・土曜も選べます。LINEで希望の時間を送ってください。</p></details>
+  </section>
+
+  <!-- 11. 最終CTA -->
+  <section class="last" id="cta">
+    <h2><small>JOIN</small>未経験の方を前提に、<br>施工管理を10名採用します。</h2>
+    <p class="lead">改修工事の依頼が増えているので、未経験の方を前提に採用しています。まずはLINEで、仕事内容と給与のくわしい話を聞いてみてください。</p>
+    <div class="cta-block">
+      <a class="cta" href="https://lin.ee/example">LINEで仕事内容を聞いてみる</a>
+      <p class="cta-note">履歴書不要・話を聞くだけでもOK</p>
+    </div>
+  </section>
+
+  <footer>
+    HADO建設株式会社　東京都目黒区／1998年創業・社員48名<br>
+    ※このページは採用LPスキルの作例です。HADO建設は架空の会社で、記載の数字・社員はすべて架空です。写真はAIで生成したイメージです。
+  </footer>
+</div>
+
+<div class="sticky" id="sticky"><a class="cta" href="https://lin.ee/example">LINEで仕事内容を聞いてみる</a></div>
+
+<script>
+const dim = document.getElementById('fvdim');
+const sticky = document.getElementById('sticky');
+const fvCta = document.querySelector('.fv .cta');
+new IntersectionObserver(([e]) => { if (e.isIntersecting) dim.classList.add('on'); }, { threshold: .6 }).observe(dim);
+new IntersectionObserver(([e]) => sticky.classList.toggle('on', !e.isIntersecting && e.boundingClientRect.top < 0)).observe(fvCta);
+</script>
+</body>
+</html>
