@@ -3,7 +3,7 @@ name: saiyo-lp
 description: |
   HADOの採用LP（求職者向けの募集ページ）を、同じ品質で何本でも作るスキル。
   「採用LP作って」「求人LP」「採用ページ」「募集LP」「〇〇社の採用LP」「/saiyo-lp」と言われたら必ずこのスキルを使う。
-  ヒアリング→OFFER.md／DESIGN.md→ファーストビューをgpt-image-2で3案→選んだ案を1枚のHTMLに実装→
+  ヒアリング→OFFER.md／DESIGN.md→型を選ぶ（文字HTML型／画像コラージュ型）→ファーストビューをgpt-image-2で3案→選んだ案を実装（画像型はセクションごとに画像生成）→
   スマホ／PCのスクショで直す→別エージェントが採点→ダメ出しをルール台帳に追記、の順で進める。
   見た目より「応募（LINE登録・面談予約）が取れる構造」を優先し、根拠のない数字は書かない。
 ---
@@ -43,6 +43,11 @@ description: |
 `references/design-rules.md` に沿って書く：カラートークン4〜6色（HEX・用途）、書体の役割2つ以上、文字サイズの階層、余白の基準値、Signature Element（ページで記憶される1点・1つだけ）、写真のトーン。
 書いたら自分で批評する：「別の会社で同じ依頼をされても同じ案にならないか」。末尾に `references/banned.md` の共通禁止＋この案件固有の禁止を5つ以上足す。
 
+### 2.5 型を選ぶ（A 文字HTML型／B 画像コラージュ型）
+- **A 文字HTML型**：下の手順3〜4のとおり。文字はHTML、写真は画像。編集しやすく、SEO・差し替えに強い
+- **B 画像コラージュ型**（`references/image-collage-lp.md`）：セクションごとに gpt-image-2 で1枚絵を作って縦に並べる。**「HTMLだと安っぽい」「デザイン性が欲しい」「ダイレクトレスポンスで強く」と言われたらこちら**。トンマナは DESIGN.md の TONE（背景・紙・強調色・CTA色・スタイル・ムード）だけで会社ごとに変える。殻は `templates/image-lp.html`、作例は `examples/nihon-sales-center/`
+- どちらでも、FV案はユーザーが選ぶまで本文に進まない
+
 ### 3. ファーストビュー3案（gpt-image-2）
 `scripts/gen_image.py` で縦長（1024x1536）の **ファーストビューのデザイン画像を3案**作る。色違いではなく構造から変える：
 - A：人物写真が主役（仕事中の社員・現場）
@@ -77,6 +82,9 @@ description: |
 ユーザーからダメ出しを受けたら、その場で `rules.md`（このスキルのフォルダ）に1行で追記する：`- [日付] 何をしない／何をする（理由）`。次のLPは手順1の前に必ず `rules.md` を読む。
 
 ## ファイル
+- `references/image-collage-lp.md` 型B（画像コラージュ型）の手順・TONEの決め方・セクション別プロンプト骨格・言われて直したこと
+- `templates/image-lp.html` 型Bの殻（{{BG}} {{PAPER}} {{ACCENT}} {{CTA}} {{IMG_BASE}} {{APPLY_URL}} を置換。1日の流れ＝写真カードの横スワイプ、CTAアニメ、固定ボタン込み）
+- `examples/nihon-sales-center/` 型Bの作例（営業職・深緑×生成り×黄×オレンジ。index.html／CONCEPT／STRUCTURE／全体スクショ）
 - `references/hearing.md` ヒアリング項目
 - `references/structure.md` 採用LPのセクション構成と各セクションの役割
 - `references/design-rules.md` DESIGN.md の書き方
