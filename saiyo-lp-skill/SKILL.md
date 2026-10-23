@@ -3,7 +3,7 @@ name: saiyo-lp
 description: |
   HADOの採用LP（求職者向けの募集ページ）を、同じ品質で何本でも作るスキル。
   「採用LP作って」「求人LP」「採用ページ」「募集LP」「〇〇社の採用LP」「/saiyo-lp」と言われたら必ずこのスキルを使う。
-  ヒアリング→OFFER.md／DESIGN.md→型を選ぶ（文字HTML型／画像コラージュ型）→ファーストビューをgpt-image-2で3案→選んだ案を実装（画像型はセクションごとに画像生成）→
+  ヒアリング→OFFER.md／DESIGN.md→ファーストビューをgpt-image-2で3案→選んだ案を1枚のHTMLに実装→
   スマホ／PCのスクショで直す→別エージェントが採点→ダメ出しをルール台帳に追記、の順で進める。
   見た目より「応募（LINE登録・面談予約）が取れる構造」を優先し、根拠のない数字は書かない。
 ---
@@ -43,11 +43,6 @@ description: |
 `references/design-rules.md` に沿って書く：カラートークン4〜6色（HEX・用途）、書体の役割2つ以上、文字サイズの階層、余白の基準値、Signature Element（ページで記憶される1点・1つだけ）、写真のトーン。
 書いたら自分で批評する：「別の会社で同じ依頼をされても同じ案にならないか」。末尾に `references/banned.md` の共通禁止＋この案件固有の禁止を5つ以上足す。
 
-### 2.5 型を選ぶ（A 文字HTML型／B 画像コラージュ型）
-- **A 文字HTML型**：下の手順3〜4のとおり。文字はHTML、写真は画像。編集しやすく、SEO・差し替えに強い
-- **B 画像コラージュ型**（`references/image-collage-lp.md`）：セクションごとに gpt-image-2 で1枚絵を作って縦に並べる。**「HTMLだと安っぽい」「デザイン性が欲しい」「ダイレクトレスポンスで強く」と言われたらこちら**。トンマナは DESIGN.md の TONE（背景・紙・強調色・CTA色・スタイル・ムード）だけで会社ごとに変える。殻は `templates/image-lp.html`、作例は `examples/nihon-sales-center/`
-- どちらでも、FV案はユーザーが選ぶまで本文に進まない
-
 ### 3. ファーストビュー3案（gpt-image-2）
 `scripts/gen_image.py` で縦長（1024x1536）の **ファーストビューのデザイン画像を3案**作る。色違いではなく構造から変える：
 - A：人物写真が主役（仕事中の社員・現場）
@@ -67,7 +62,11 @@ description: |
 写真が無い場合は `scripts/gen_image.py` で作ってよいが、**架空の社員の声や顔写真を本番で実在の人物として出さない**（クライアント支給の写真に差し替える前提で、画像の下に小さく「イメージ」と入れる）。
 
 ### 5. スクショで直す
-`node scripts/shot.mjs <slug>/index.html` でスマホ（390px・1画面ずつ `sp_01.png`〜、最初の1画面は `sp_fv.png`）とPC（`pc.png`）を撮り、Readで見る。**ファーストビューの1画面にCTAとその下の1行まで収まっているか**を最初に確認する。横はみ出しは WARN で出る。**一度に直すのは影響の大きい3点まで**。直したら撮り直す。最低2周。
+`node scripts/shot.mjs <slug>/index.html` でスマホ（390px・1画面ずつ `sp_01.png`〜、最初の1画面は `sp_fv.png`）とPC（`pc.png`）を撮り、Readで見る。**ファーストビューの1画面にCTAとその下の1行まで収まっているか**を最初に確認する。**一度に直すのは影響の大きい3点まで**。直したら撮り直す。最低2周。
+スクショは必ずこのスクリプト（Playwrightのスマホ指定）で撮る。**headless Chrome を `--window-size=390,…` で起動して撮らない**（約500px未満に縮まらず右側が写らないため「切れている」ように見える誤検知になる。2026-10-23 NSC様LPで発生）。
+
+### 5.5 スマホ全幅の機械検査（必須）
+`node scripts/check.mjs <slug>/index.html` を実行し、**最後に「全幅OK」と出るまで公開しない**。320／360／375／390／414／430px で「横スクロール」と「文字切れ（overflow:hidden の箱から文字がはみ出す）」を検査し、1つでもあれば exit 1 で止まる。意図した横スクロール（カルーセル）は overflow-x:auto の箱に入れる。装飾のはみ出しは overflow:hidden の箱で包む。`SHOTS=shots/check node scripts/check.mjs …` で各幅の1画面目も保存できる。公開済みのLPは URL を渡して同じ検査ができる。
 
 ### 6. 別エージェントで採点
 サブエージェント（Agentツール・general-purpose）を新しく起動し、**実装の経緯は渡さず**、`OFFER.md`・スクショ・`index.html`・`references/rubric.md` だけ渡して採点させる。結果は `review.md`。「作り直す」に分類された項目と「このまま公開すると一番損をする箇所」だけ直す。
@@ -76,15 +75,13 @@ description: |
 - CTAのリンク先がすべて本物のURLか（仮のままにしない）
 - `【要確認】` が残っていないか（残すならユーザーに一覧で伝える）
 - 誤字・数字の表記ゆれ
-- 公開するなら Vercel（`vercel --prod`）
+- `node scripts/check.mjs <slug>/index.html` が「全幅OK」（5.5。Stopフック claude-hooks/guard.py でも強制される）
+- 公開するなら Vercel（`vercel --prod`）。公開後に `node scripts/check.mjs https://…` を本番URLでもう一度
 
 ### 8. ルール台帳を育てる
 ユーザーからダメ出しを受けたら、その場で `rules.md`（このスキルのフォルダ）に1行で追記する：`- [日付] 何をしない／何をする（理由）`。次のLPは手順1の前に必ず `rules.md` を読む。
 
 ## ファイル
-- `references/image-collage-lp.md` 型B（画像コラージュ型）の手順・TONEの決め方・セクション別プロンプト骨格・言われて直したこと
-- `templates/image-lp.html` 型Bの殻（{{BG}} {{PAPER}} {{ACCENT}} {{CTA}} {{IMG_BASE}} {{APPLY_URL}} を置換。1日の流れ＝写真カードの横スワイプ、CTAアニメ、固定ボタン込み）
-- `examples/nihon-sales-center/` 型Bの作例（営業職・深緑×生成り×黄×オレンジ。index.html／CONCEPT／STRUCTURE／全体スクショ）
 - `references/hearing.md` ヒアリング項目
 - `references/structure.md` 採用LPのセクション構成と各セクションの役割
 - `references/design-rules.md` DESIGN.md の書き方
@@ -93,4 +90,5 @@ description: |
 - `rules.md` ダメ出し台帳（使うほど育つ）
 - `scripts/gen_image.py` gpt-image-2 で画像生成（`~/.zshrc` の OPENAI_API_KEY）
 - `scripts/shot.mjs` スマホ・PCのスクショ（初回に playwright-core を自動で入れ、インストール済みの Google Chrome を使う）
+- `scripts/check.mjs` スマホ全幅（320〜430px）の横スクロール・文字切れ検査。「全幅OK」が出るまで公開しない（URLも可）
 - `examples/hado-kensetsu/` 作例（架空の建設会社）
