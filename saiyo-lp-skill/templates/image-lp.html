@@ -1,6 +1,6 @@
 <!-- templates/image-lp.html：型B（画像コラージュ型）の殻。{{…}} を置き換え、各セクションの文章・画像を差し替える。
   {{BG}} 背景の濃色 / {{BG2}} 少し明るい同系 / {{BG_DARK}} ページ外側の更に暗い色 / {{PAPER}} 紙・ラベルの地色 / {{PAPER2}} 表の罫線色 / {{ACCENT}} 強調色 / {{CTA}} ボタン色 / {{CTA_RGB}} 例 255,90,31
-  {{IMG_BASE}} 画像の絶対URLの元（例 https://xxx.vercel.app/images） / {{APPLY_URL}} チョクサイの応募フォーム / {{COMPANY}} / {{COMPANY_SHORT}}
+  {{IMG_BASE}} 画像の絶対URLの元（例 https://xxx.vercel.app/images） / {{APPLY_URL}} ジカ採の応募フォーム / {{COMPANY}} / {{COMPANY_SHORT}}
   会社固有の文章（1日の流れ・正直に・募集要項・FAQ）は日本セールスセンターの例のまま入っているので、必ず書き換える。 -->
 <!doctype html>
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -209,7 +209,7 @@ footer a{color:#fff}
 <!-- 14 最終CTA -->
 <section id="apply"><img class="img" src="{{IMG_BASE}}/sec/s9-final.jpg" alt="本気を出す場所を、探していたなら。今期の採用は10名。面談はオンライン30分、履歴書はいりません。インサイドセールス 正社員募集／営業未経験からトップセールスへ" width="1024" height="1536" loading="lazy"><a class="hit" href="{{APPLY_URL}}" data-cta>まずは話を気軽に聞いてみる</a></section>
 
-<footer>{{COMPANY}}<br>〒170-0013 東京都豊島区東池袋2-45-9 芸文社ビル2階<br><a href="https://nihon-sales.com/" target="_blank" rel="noopener">コーポレートサイト</a>　／　このページの応募受付は採用支援サービス「チョクサイ by PIVO」（運営 株式会社HADO）で行っています</footer>
+<footer>{{COMPANY}}<br>〒170-0013 東京都豊島区東池袋2-45-9 芸文社ビル2階<br><a href="https://nihon-sales.com/" target="_blank" rel="noopener">コーポレートサイト</a>　／　このページの応募受付は採用支援サービス「ジカ採 by PIVO」（運営 株式会社HADO）で行っています</footer>
 </div>
 
 <div class="fix" id="fix"><a class="cta" href="{{APPLY_URL}}" data-cta>まずは話を気軽に聞いてみる<small>オンライン30分・履歴書なし</small></a></div>
@@ -219,7 +219,7 @@ footer a{color:#fff}
 const fix=document.getElementById('fix'), fv=document.querySelector('section'), last=document.getElementById('apply');
 const io=new IntersectionObserver(es=>{es.forEach(e=>{ if(e.target===fv) fix.classList.toggle('on',!e.isIntersecting&&!lastVisible); if(e.target===last){ lastVisible=e.isIntersecting; fix.classList.toggle('on',!e.isIntersecting&&fvPassed); } });},{threshold:.15});
 let lastVisible=false, fvPassed=false; new IntersectionObserver(es=>{fvPassed=!es[0].isIntersecting;},{threshold:.15}).observe(fv); io.observe(fv); io.observe(last);
-// 応募先：チョクサイの応募フォーム（職種固定・LPの流入を引き継ぐ）
+// 応募先：ジカ採の応募フォーム（職種固定・LPの流入を引き継ぐ）
 const APPLY='{{APPLY_URL}}';
 document.querySelectorAll('[data-cta]').forEach(a=>{ a.href=APPLY+location.search.replace(/^\?/,'&'); });
 </script>

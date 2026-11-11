@@ -5,7 +5,7 @@ description: |
   「HADOの採用LP」「自社採用のLP」「hado-recruitに新しいLP」「〇〇職のHADO採用LP」「/lp/〇〇を作って」「/hado-saiyo-lp」と言われたら必ずこのスキルを使う。
   手本は /lp/video-creator-tiktok（HADOコーポレートサイトのトーン・LP内応募フォーム→その場で面談予約）。
   LP内応募フォーム（/apply.js）・lps.js 登録・管理画面の流入URL/面談担当/フォーム設定まで含めて公開する。
-  ※ 他社（チョクサイ等の直採クライアント）の採用LPは saiyo-lp スキルを使う。こちらは使わない。
+  ※ 他社（ジカ採等の直採クライアント）の採用LPは saiyo-lp スキルを使う。こちらは使わない。
 ---
 
 # HADO自社採用LPスキル（hado-saiyo-lp）
